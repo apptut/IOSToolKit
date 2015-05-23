@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (MD5)
-- (NSString *)MD5Digest;
+@interface NSString (ITK_MD5)
+- (NSString *)itk_MD5;
 @end

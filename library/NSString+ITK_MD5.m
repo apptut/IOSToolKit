@@ -5,12 +5,12 @@
 //  实现字符串md5函数处理
 //
 
-#import "NSString+MD5.h"
+#import "NSString+ITK_MD5.h"
 #import <CommonCrypto/CommonDigest.h>
 
-@implementation NSString (MD5)
+@implementation NSString (ITK_MD5)
 
-- (NSString *)MD5Digest
+- (NSString *)itk_MD5
 {
     const char* input = [self UTF8String];
     unsigned char result[CC_MD5_DIGEST_LENGTH];

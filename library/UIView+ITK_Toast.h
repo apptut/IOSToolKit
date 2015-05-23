@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (Toast)
+@interface UIView (ITK_Toast)
 
 // 显示消息
-- (void) make:(NSString *) message;
+- (void) itk_make:(NSString *) message;
 
 @end

@@ -8,7 +8,11 @@
 
 #import "ViewController.h"
 
+#import "UIView+ITK_Loading.h"
+
 @interface ViewController ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *loadingView;
 
 @end
 
@@ -16,12 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    [self.view itk_showLoading:@"努力加载中.."];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 @end

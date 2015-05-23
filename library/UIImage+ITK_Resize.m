@@ -6,11 +6,11 @@
 //  
 //
 
-#import "UIImage+Extension.h"
+#import "UIImage+ITK_Resize.h"
 
-@implementation UIImage (Resize)
+@implementation UIImage (ITK_Resize)
 
-- (UIImage *) resizbaleImage:(NSString *)img{
+- (UIImage *) itk_resizbaleImage:(NSString *)img{
     
     // 设置表单区域背景拉伸效果
     UIImage *boxBg = [UIImage imageNamed:img];

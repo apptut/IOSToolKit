@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 duoqu. All rights reserved.
 //
 
-#import "UIView+Toast.h"
+#import "UIView+ITK_Toast.h"
 
 
 // 默认toast 显示时间
@@ -37,14 +37,14 @@ static const CGFloat MuseToastVerticalPadding     = 10.0;
 
 
 
-@implementation UIView (Toast)
+@implementation UIView (ITK_Toast)
 
 
-- (void) make:(NSString *) message{
-    [self make:message duration:MuseToastDefaultDuration];
+- (void) itk_make:(NSString *) message{
+    [self itk_make:message duration:MuseToastDefaultDuration];
 }
 
-- (void) show:(UIView *)layout duration:(NSTimeInterval) duration{
+- (void) itk_show:(UIView *)layout duration:(NSTimeInterval) duration{
     
     // 设置toast位置
     layout.center = [self getLayoutPositoin:nil withToast:layout];
@@ -61,9 +61,9 @@ static const CGFloat MuseToastVerticalPadding     = 10.0;
 
 
 
-- (void) make:(NSString *) message duration:(NSTimeInterval)duration{
+- (void) itk_make:(NSString *) message duration:(NSTimeInterval)duration{
     UIView *layout = [self getToastLayout:message];
-    [self show:layout duration:duration];
+    [self itk_show:layout duration:duration];
 }
 
 

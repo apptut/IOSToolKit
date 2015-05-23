@@ -14,9 +14,11 @@
 		CE57441F1B1079E8006F14FC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE57441E1B1079E8006F14FC /* Images.xcassets */; };
 		CE5744221B1079E8006F14FC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5744201B1079E8006F14FC /* LaunchScreen.xib */; };
 		CE57442E1B1079E8006F14FC /* IOSToolKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE57442D1B1079E8006F14FC /* IOSToolKitTests.m */; };
-		CE57443F1B107ADE006F14FC /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = CE57443D1B107ADE006F14FC /* NSString+MD5.m */; };
-		CE5744421B107B77006F14FC /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5744411B107B77006F14FC /* UIImage+Resize.m */; };
-		CE5744451B107C1B006F14FC /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5744441B107C1B006F14FC /* UIView+Toast.m */; };
+		CE57443F1B107ADE006F14FC /* NSString+ITK_MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = CE57443D1B107ADE006F14FC /* NSString+ITK_MD5.m */; };
+		CE5744421B107B77006F14FC /* UIImage+ITK_Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5744411B107B77006F14FC /* UIImage+ITK_Resize.m */; };
+		CE5744451B107C1B006F14FC /* UIView+ITK_Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5744441B107C1B006F14FC /* UIView+ITK_Toast.m */; };
+		CE57444B1B109E56006F14FC /* UIView+ITK_Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = CE57444A1B109E56006F14FC /* UIView+ITK_Loading.m */; };
+		CE57444E1B10C9E8006F14FC /* UIColor+ITK_HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = CE57444D1B10C9E8006F14FC /* UIColor+ITK_HexColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,12 +45,16 @@
 		CE5744271B1079E8006F14FC /* IOSToolKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOSToolKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE57442C1B1079E8006F14FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE57442D1B1079E8006F14FC /* IOSToolKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSToolKitTests.m; sourceTree = "<group>"; };
-		CE57443C1B107ADE006F14FC /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
-		CE57443D1B107ADE006F14FC /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
-		CE5744401B107B77006F14FC /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
-		CE5744411B107B77006F14FC /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
-		CE5744431B107C1B006F14FC /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
-		CE5744441B107C1B006F14FC /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
+		CE57443C1B107ADE006F14FC /* NSString+ITK_MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ITK_MD5.h"; sourceTree = "<group>"; };
+		CE57443D1B107ADE006F14FC /* NSString+ITK_MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ITK_MD5.m"; sourceTree = "<group>"; };
+		CE5744401B107B77006F14FC /* UIImage+ITK_Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ITK_Resize.h"; sourceTree = "<group>"; };
+		CE5744411B107B77006F14FC /* UIImage+ITK_Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ITK_Resize.m"; sourceTree = "<group>"; };
+		CE5744431B107C1B006F14FC /* UIView+ITK_Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ITK_Toast.h"; sourceTree = "<group>"; };
+		CE5744441B107C1B006F14FC /* UIView+ITK_Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ITK_Toast.m"; sourceTree = "<group>"; };
+		CE5744491B109E56006F14FC /* UIView+ITK_Loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ITK_Loading.h"; sourceTree = "<group>"; };
+		CE57444A1B109E56006F14FC /* UIView+ITK_Loading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ITK_Loading.m"; sourceTree = "<group>"; };
+		CE57444C1B10C9E8006F14FC /* UIColor+ITK_HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ITK_HexColor.h"; sourceTree = "<group>"; };
+		CE57444D1B10C9E8006F14FC /* UIColor+ITK_HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ITK_HexColor.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,12 +138,16 @@
 		CE5744371B1079F9006F14FC /* ToolKit */ = {
 			isa = PBXGroup;
 			children = (
-				CE5744431B107C1B006F14FC /* UIView+Toast.h */,
-				CE5744441B107C1B006F14FC /* UIView+Toast.m */,
-				CE5744401B107B77006F14FC /* UIImage+Resize.h */,
-				CE5744411B107B77006F14FC /* UIImage+Resize.m */,
-				CE57443C1B107ADE006F14FC /* NSString+MD5.h */,
-				CE57443D1B107ADE006F14FC /* NSString+MD5.m */,
+				CE5744431B107C1B006F14FC /* UIView+ITK_Toast.h */,
+				CE5744441B107C1B006F14FC /* UIView+ITK_Toast.m */,
+				CE5744401B107B77006F14FC /* UIImage+ITK_Resize.h */,
+				CE5744411B107B77006F14FC /* UIImage+ITK_Resize.m */,
+				CE57443C1B107ADE006F14FC /* NSString+ITK_MD5.h */,
+				CE57443D1B107ADE006F14FC /* NSString+ITK_MD5.m */,
+				CE5744491B109E56006F14FC /* UIView+ITK_Loading.h */,
+				CE57444A1B109E56006F14FC /* UIView+ITK_Loading.m */,
+				CE57444C1B10C9E8006F14FC /* UIColor+ITK_HexColor.h */,
+				CE57444D1B10C9E8006F14FC /* UIColor+ITK_HexColor.m */,
 			);
 			name = ToolKit;
 			sourceTree = "<group>";
@@ -243,11 +253,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE57441A1B1079E8006F14FC /* ViewController.m in Sources */,
-				CE57443F1B107ADE006F14FC /* NSString+MD5.m in Sources */,
-				CE5744421B107B77006F14FC /* UIImage+Resize.m in Sources */,
-				CE5744451B107C1B006F14FC /* UIView+Toast.m in Sources */,
+				CE57443F1B107ADE006F14FC /* NSString+ITK_MD5.m in Sources */,
+				CE57444B1B109E56006F14FC /* UIView+ITK_Loading.m in Sources */,
+				CE5744421B107B77006F14FC /* UIImage+ITK_Resize.m in Sources */,
+				CE5744451B107C1B006F14FC /* UIView+ITK_Toast.m in Sources */,
 				CE5744171B1079E8006F14FC /* AppDelegate.m in Sources */,
 				CE5744141B1079E8006F14FC /* main.m in Sources */,
+				CE57444E1B10C9E8006F14FC /* UIColor+ITK_HexColor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +454,7 @@
 				CE5744331B1079E8006F14FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CE5744341B1079E8006F14FC /* Build configuration list for PBXNativeTarget "IOSToolKitTests" */ = {
 			isa = XCConfigurationList;
@@ -450,6 +463,7 @@
 				CE5744361B1079E8006F14FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

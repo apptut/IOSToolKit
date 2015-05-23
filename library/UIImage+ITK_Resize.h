@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImage (Resize)
+@interface UIImage (ITK_Resize)
 
 
 // 图片自动拉伸
-- (UIImage *) resizbaleImage:(NSString *) img;
+- (UIImage *) itk_resizbaleImage:(NSString *) img;
 
 
 @end

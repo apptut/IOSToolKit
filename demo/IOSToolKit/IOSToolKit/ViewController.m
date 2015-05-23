@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-#import "UIView+ITK_Loading.h"
+#import "IOSToolKit.h"
 
 @interface ViewController ()
 

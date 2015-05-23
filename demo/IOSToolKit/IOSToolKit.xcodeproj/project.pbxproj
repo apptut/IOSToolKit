@@ -55,6 +55,7 @@
 		CE57444A1B109E56006F14FC /* UIView+ITK_Loading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ITK_Loading.m"; sourceTree = "<group>"; };
 		CE57444C1B10C9E8006F14FC /* UIColor+ITK_HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ITK_HexColor.h"; sourceTree = "<group>"; };
 		CE57444D1B10C9E8006F14FC /* UIColor+ITK_HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ITK_HexColor.m"; sourceTree = "<group>"; };
+		CE57444F1B10E15C006F14FC /* IOSToolKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSToolKit.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +149,7 @@
 				CE57444A1B109E56006F14FC /* UIView+ITK_Loading.m */,
 				CE57444C1B10C9E8006F14FC /* UIColor+ITK_HexColor.h */,
 				CE57444D1B10C9E8006F14FC /* UIColor+ITK_HexColor.m */,
+				CE57444F1B10E15C006F14FC /* IOSToolKit.h */,
 			);
 			name = ToolKit;
 			sourceTree = "<group>";

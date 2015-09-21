@@ -7,12 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "UIScrollView+ITK_Refresh.h"
 
-#import "IOSToolKit.h"
+@interface ViewController () <UITableViewDelegate,UITableViewDataSource>
 
-@interface ViewController ()
-
-@property (weak, nonatomic) IBOutlet UIImageView *loadingView;
+@property (weak, nonatomic) IBOutlet UITableView *testTableView;
 
 @end
 
@@ -21,7 +20,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.view itk_showLoading:@"努力加载中.."];
+    [self.testTableView itk_onRefreshStart:^{
+        NSLog(@"on top refresh load");
+    }];
+    
+    [self.testTableView itk_onLoadMoreStart:^{
+        NSLog(@"onload load more code");
+    }];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 20;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"testCell"];
+
+    return cell;
 }
 
 

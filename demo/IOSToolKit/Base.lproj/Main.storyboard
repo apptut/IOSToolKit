@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,22 +17,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pc2-5w-bk8">
-                                <rect key="frame" x="200" y="200" width="200" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="dJU-Go-0yR"/>
-                                    <constraint firstAttribute="width" constant="200" id="oSx-2c-y8r"/>
-                                </constraints>
-                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="PH8-CN-veh">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="testCell" id="aTu-SC-5TE">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aTu-SC-5TE" id="0sJ-s3-hFk">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hello" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJO-qJ-b3U">
+                                                    <rect key="frame" x="40" y="8" width="37" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="c0f-Df-but"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="iN9-iE-UwF"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="pc2-5w-bk8" secondAttribute="centerX" id="gmL-2H-lY6"/>
-                            <constraint firstAttribute="centerY" secondItem="pc2-5w-bk8" secondAttribute="centerY" id="w6Q-Tp-iII"/>
+                            <constraint firstAttribute="trailing" secondItem="PH8-CN-veh" secondAttribute="trailing" id="28M-7X-dP4"/>
+                            <constraint firstItem="PH8-CN-veh" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="3B1-bu-hmb"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="PH8-CN-veh" secondAttribute="bottom" id="9uN-wD-x1K"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PH8-CN-veh" secondAttribute="trailing" id="AuX-Jy-Zh6"/>
+                            <constraint firstItem="PH8-CN-veh" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="a0b-nl-qmh"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="PH8-CN-veh" secondAttribute="bottom" id="bzU-VL-oGK"/>
+                            <constraint firstItem="PH8-CN-veh" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="eV6-Kx-BNp"/>
+                            <constraint firstItem="PH8-CN-veh" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="gVV-sE-KCG"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="AuX-Jy-Zh6"/>
+                                <exclude reference="eV6-Kx-BNp"/>
+                                <exclude reference="gVV-sE-KCG"/>
+                                <exclude reference="bzU-VL-oGK"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <outlet property="loadingView" destination="pc2-5w-bk8" id="RMd-GT-SeY"/>
+                        <outlet property="testTableView" destination="PH8-CN-veh" id="bAf-6L-UIb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

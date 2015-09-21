@@ -28,7 +28,6 @@ static NSString* const itkInitError = @"color must begin with #, such as #333 or
     
     cString = [cString substringFromIndex:1];
     
-    
     if (cString.length != 6 && cString.length != 3){
         @throw [[NSException alloc] initWithName:@"ColorExceptoin" reason:itkInitError userInfo:nil];
     }

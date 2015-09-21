@@ -17,5 +17,6 @@
     #import "NSString+ITK_MD5.h"
     #import "UIView+ITK_Loading.h"
     #import "UIColor+ITK_HexColor.h"
+    #import "UIScrollView+ITK_Refresh.h"
 
 #endif

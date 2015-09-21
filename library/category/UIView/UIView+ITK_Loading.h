@@ -15,6 +15,7 @@
 @interface UIView (ITK_Loading)
 
 - (void) itk_showLoading: (NSString *)message;
+
 - (void) itk_showLoading;
 
 @end

@@ -7,13 +7,14 @@
 //
 
 #import "UIView+ITK_Toast.h"
+#import <objc/runtime.h>
 
 
 // 默认toast 显示时间
 static const NSTimeInterval MuseToastDefaultDuration  = 2.0;
 
 // 显示动画时间
-static const NSTimeInterval MuseToastFadeDuration = 0.8;
+static const NSTimeInterval MuseToastFadeDuration = 0.4;
 
 // toast圆角效果
 static const CGFloat MuseToastCornerRadius = 5.0;
@@ -33,37 +34,113 @@ static const CGFloat MuseToastMaxHeight           = 0.8;
 
 // 内边距
 static const CGFloat MuseToastHorizontalPadding   = 10.0;
-static const CGFloat MuseToastVerticalPadding     = 10.0;
+static const CGFloat MuseToastVerticalPadding     = 5.0;
 
+// 回调key
+static const NSString * kRuntimeCallbackKey  = @"callbackKey";
 
 
 @implementation UIView (ITK_Toast)
 
+- (void)itk_make:(NSString *)message complete:(void (^)())complete{
+    [self itk_make:message duration:MuseToastDefaultDuration position:ITKToastPositionCenterBottom complete:complete];
+}
 
 - (void) itk_make:(NSString *) message{
     [self itk_make:message duration:MuseToastDefaultDuration];
 }
 
-- (void) itk_show:(UIView *)layout duration:(NSTimeInterval) duration{
+- (void) itk_make:(NSString *)message position:(ITKToastPosition) position{
+    [self itk_make:message duration:MuseToastDefaultDuration position:position complete:nil];
+}
+
+- (void) itk_show:(UIView *)layout duration:(NSTimeInterval) duration position:(ITKToastPosition) position complete:(void (^)())complete{
     
-    // 设置toast位置
-    layout.center = [self getLayoutPositoin:nil withToast:layout];
+    // 禁用autosize，使用autolayout实现
+    layout.translatesAutoresizingMaskIntoConstraints = NO;
+    layout.alpha = 0.0f;
     
     [self addSubview:layout];
+    
+    NSLayoutConstraint *hConstraint = nil;
+    NSLayoutConstraint *vConstraint = nil;
+    
+    
+    switch (position) {
+        case ITKToastPositionCenterBottom:{
+            // 水平居中
+            hConstraint = [NSLayoutConstraint constraintWithItem:layout attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0];
+            
+            // 页面底部20个点位置
+            vConstraint = [NSLayoutConstraint constraintWithItem:layout attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-20];
+            
+            NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:layout attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeHeight multiplier:1.0 constant:layout.frame.size.height];
+            NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:layout attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeWidth multiplier:1.0 constant:layout.frame.size.width];
+            
+            [layout addConstraint:height];
+            [layout addConstraint:width];
+            break;
+        }
+
+        case ITKToastPositionCenter:{
+        
+            // 水平居中
+            hConstraint = [NSLayoutConstraint constraintWithItem:layout attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0];
+            
+            // 垂直居中
+            vConstraint = [NSLayoutConstraint constraintWithItem:layout attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0];
+            
+            NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:layout attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeHeight multiplier:1.0 constant:layout.frame.size.height];
+            NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:layout attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeWidth multiplier:1.0 constant:layout.frame.size.width];
+            
+            [layout addConstraint:height];
+            [layout addConstraint:width];
+            break;
+        }
+            
+        case ITKToastPositionCenterTop:{
+            // 水平居中
+            hConstraint = [NSLayoutConstraint constraintWithItem:layout attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0];
+            
+            // 垂直居上20个点
+            vConstraint = [NSLayoutConstraint constraintWithItem:layout attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1.0 constant:20];
+            
+            NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:layout attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeHeight multiplier:1.0 constant:layout.frame.size.height];
+            NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:layout attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeWidth multiplier:1.0 constant:layout.frame.size.width];
+            
+            [layout addConstraint:height];
+            [layout addConstraint:width];
+        }
+            
+    }
+    
+    [self addConstraint:hConstraint];
+    [self addConstraint:vConstraint];
+    
     
     [UIView animateWithDuration:MuseToastFadeDuration delay:0.0 options:(UIViewAnimationOptionCurveEaseOut |UIViewAnimationOptionAllowUserInteraction)
                      animations:^{
                          layout.alpha = 1.0;
                      } completion:^(BOOL finished) {
                          [NSTimer scheduledTimerWithTimeInterval:duration target:self selector:@selector(toastTimerDidFinish:) userInfo:layout repeats:NO];
+                         
+                         if (complete) {
+                             objc_setAssociatedObject(self, &kRuntimeCallbackKey, complete, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+                         }
                      }];
+    
+    
+    
+}
+
+- (void) itk_make:(NSString *) message duration:(NSTimeInterval)duration position:(ITKToastPosition) position complete:(void (^)())complete{
+    UIView *layout = [self getToastLayout:message];
+    [self itk_show:layout duration:duration position:position complete:complete];
 }
 
 
-
 - (void) itk_make:(NSString *) message duration:(NSTimeInterval)duration{
-    UIView *layout = [self getToastLayout:message];
-    [self itk_show:layout duration:duration];
+    [self itk_make:message duration:duration position:ITKToastPositionCenterBottom complete:nil];
 }
 
 
@@ -79,9 +156,13 @@ static const CGFloat MuseToastVerticalPadding     = 10.0;
                          toast.alpha = 0.0;
                      } completion:^(BOOL finished) {
                          [toast removeFromSuperview];
+                         
+                         void (^callback)(void) = objc_getAssociatedObject(self, &kRuntimeCallbackKey);
+                         if (callback) {
+                             callback();
+                         }
                      }];
 }
-
 
 
 - (UIView *) getToastLayout:(NSString *) message{

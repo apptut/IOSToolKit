@@ -43,6 +43,7 @@ static NSString* ITKMessageColor = @"#666666";
 }
 
 
+
 - (UIView *) getLayout:(NSString *) message{
     UIView *layoutView = [[UIView alloc] init];
     
